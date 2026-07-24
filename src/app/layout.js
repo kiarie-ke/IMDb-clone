@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
@@ -28,12 +29,14 @@ export default function RootLayout({ children }) {
     >
       <body className="min-h-full flex flex-col">
         <Providers>
-        <Header />
-        <Navbar />
-        <Searchboox />
-        {children}
+          <Header />
+          <Suspense fallback={null}>
+            <Navbar />
+          </Suspense>
+          <Searchboox />
+          {children}
         </Providers>
-        </body>
+      </body>
     </html>
   );
 }

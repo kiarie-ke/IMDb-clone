@@ -1,7 +1,7 @@
 import Image from 'next/image';
 
 export default async function MoviePage({ params }) {
-  const { id: movieId } = await params;
+  const { id: movieId } = params;
   const res = await fetch(
     `https://api.themoviedb.org/3/movie/${movieId}?api_key=${process.env.API_KEY}`
   );
